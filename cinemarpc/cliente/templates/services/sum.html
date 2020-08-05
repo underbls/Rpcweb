@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <title></title>
+  </head>
+  <body>
+    <div class="topnav">
+     <a href=/>Home</a>
+     <a href=/service1>Say Hello</a>
+     <a class="active" href=/service2>Sum</a>
+     <a href=/service3>List Hello</a>
+    </div>
+    {% block content %}
+      {% from 'macros.html' import render_field %}
+      <form class="" method="post">
+        <div class="">
+          {{render_field(form.param1)}}
+        </div>
+        <div class="">
+          {{render_field(form.param2)}}
+        </div>
+        <div class="">
+          <button type="submit" class="btn success" name="button">Sum</button>
+        </div>
+        <div class="">
+          {% if data%}
+            {{data}}
+          {% endif%}
+        </div>
+      </form>
+    {% endblock %}
+  </body>
+</html>
